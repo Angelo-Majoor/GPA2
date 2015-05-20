@@ -1,0 +1,11 @@
+C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Simple.xnb
+C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Models\Teapot.xnb
+C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Normal Maps\CobblestonesNormal.xnb
+C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Textures\CobblestonesDiffuse.xnb
+C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\GraphicsPractical2.exe
+C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\GraphicsPractical2.pdb
+C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\obj\x86\Debug\GraphicsPractical2.exe
+C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\obj\x86\Debug\GraphicsPractical2.pdb
+C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Lambertian.xnb
+C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\obj\x86\Debug\GraphicsPractical2.csprojResolveAssemblyReference.cache

@@ -64,10 +64,11 @@ namespace GraphicsPractical2
         {
             // Create a SpriteBatch object
             this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
-            // Load the "Simple" effect
-            Effect effect = this.Content.Load<Effect>("Effects/Simple");
-            // Load the model and let it use the "Simple" effect
+            // Load the "Lambertian" effect
+            Effect effect = this.Content.Load<Effect>("Effects/Lambertian");
+            // Load the teapot model
             this.model = this.Content.Load<Model>("Models/Teapot");
+            // Let the model use the 'Lambertian' effect
             this.model.Meshes[0].MeshParts[0].Effect = effect;
             // Setup the quad
             this.setupQuad();
@@ -121,10 +122,18 @@ namespace GraphicsPractical2
             Effect effect = mesh.Effects[0];
 
             // Set the effect parameters
-            effect.CurrentTechnique = effect.Techniques["Simple"];
+            effect.CurrentTechnique = effect.Techniques["Lambertian"];
+
             // Matrices for 3D perspective projection
             this.camera.SetEffectParameters(effect);
+
+            this.modelMaterial.DiffuseColor = Color.Red;
+            this.modelMaterial.SetEffectParameters(effect);
+
             effect.Parameters["World"].SetValue(Matrix.CreateScale(10.0f));
+            effect.Parameters["WorldInverse"].SetValue(Matrix.Invert(Matrix.CreateScale(10.0f)));
+            effect.Parameters["PointLight"].SetValue(new Vector3(50, 50, 50));
+
             // Draw the model
             mesh.Draw();
 
