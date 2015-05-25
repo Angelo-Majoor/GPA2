@@ -127,8 +127,12 @@ namespace GraphicsPractical2
             // Matrices for 3D perspective projection
             this.camera.SetEffectParameters(effect);
 
-            // Set the diffuse color of the material
+            // Set the diffuse color
             this.modelMaterial.DiffuseColor = Color.Red;
+            // Set the ambient color
+            this.modelMaterial.AmbientColor = Color.Red;
+            // Set the ambient intensity
+            this.modelMaterial.AmbientIntensity = 0.2f;
             // Apply the elements of the SetEffectParameters method that are being used
             this.modelMaterial.SetEffectParameters(effect);
 

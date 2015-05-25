@@ -4,8 +4,12 @@
 float4x4 View, Projection, World;
 // The inverse of the World matrix
 float4x4 WorldInverse;
-// The diffuse color of the object
+// The diffuse color for the object
 float4 DiffuseColor;
+// The ambient color for the object
+float4 AmbientColor;
+// The ambient intensity for the object
+float AmbientIntensity;
 // A source of light
 float3 PointLight;
 
@@ -50,6 +54,9 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput input)
 	// Normalize the normals
 	input.Normal = normalize(intermediateNormal);
 
+	// The color to start with: ambient
+	float4 color = AmbientColor;
+
 	// Determine the light vector
 	// First get the light vector in object space
 	vector objectLight = mul(PointLight, WorldInverse);
@@ -59,7 +66,7 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput input)
 	float diffuse = max(0, dot(input.Normal, lightDirection));
 
 	// Compute the final lighting
-	output.Color = DiffuseColor * diffuse;
+	output.Color = (DiffuseColor * diffuse) + (AmbientColor * AmbientIntensity);
 
 	return output;
 }
