@@ -9,10 +9,6 @@ float4 DiffuseColor;
 // A source of light
 float3 PointLight;
 
-//float3x3 rotationAndScale = (float3x3) World;
-// TODO: Apply the rotationAndScale to the normals
-// TODO: Normalize them to remove any scaling
-
 //---------------------------------- Input / Output structures ----------------------------------
 
 // The input of the vertex shader
@@ -41,8 +37,18 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput input)
 	float4 viewPosition = mul(worldPosition, View);
 	output.Position2D = mul(viewPosition, Projection);
 
-	// The normals might not be normalised
-	input.Normal = normalize(input.Normal);
+	// To do correct lighting calculations using the normals, take the World matrix into
+	// account. If the model gets rotated, so must the normals. One way to do this is 
+	// extract the top left 3x3 matrix out of the World matrix, which holds the rotation 
+	// and scaling part of the World transformation, apply that to the normals and 
+	// finally normalize them so that any scaling is removed.
+	// 
+	// Extract the top-left 3x3 matrix out of the World matrix
+	float3x3 rotationAndScale = (float3x3) World;
+	// Apply this matrix to the normals
+	float3 intermediateNormal = mul(rotationAndScale, input.Normal);
+	// Normalize the normals
+	input.Normal = normalize(intermediateNormal);
 
 	// Determine the light vector
 	// First get the light vector in object space
