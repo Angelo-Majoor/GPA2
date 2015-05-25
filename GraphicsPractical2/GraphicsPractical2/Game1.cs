@@ -64,7 +64,7 @@ namespace GraphicsPractical2
         {
             // Create a SpriteBatch object
             this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
-            // Load the "Lambertian" effect
+            // Load the 'Lambertian' effect
             Effect effect = this.Content.Load<Effect>("Effects/Lambertian");
             // Load the teapot model
             this.model = this.Content.Load<Model>("Models/Teapot");
@@ -127,11 +127,16 @@ namespace GraphicsPractical2
             // Matrices for 3D perspective projection
             this.camera.SetEffectParameters(effect);
 
+            // Set the diffuse color of the material
             this.modelMaterial.DiffuseColor = Color.Red;
+            // Apply the elements of the SetEffectParameters method that are being used
             this.modelMaterial.SetEffectParameters(effect);
 
+            // Set the value of the World matrix to use in the Lambertian effect file
             effect.Parameters["World"].SetValue(Matrix.CreateScale(10.0f));
+            // Calculate the inverse of the World matrix to use in the Lambertian effect file
             effect.Parameters["WorldInverse"].SetValue(Matrix.Invert(Matrix.CreateScale(10.0f)));
+            // Set the value of the point light to use in the Lambertian effect file
             effect.Parameters["PointLight"].SetValue(new Vector3(50, 50, 50));
 
             // Draw the model

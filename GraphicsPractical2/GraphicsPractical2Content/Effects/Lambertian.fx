@@ -1,8 +1,10 @@
+//------------------------------------- Top Level Variables -------------------------------------
+
 // Matrices for 3D perspective projection
 float4x4 View, Projection, World;
 // The inverse of the World matrix
 float4x4 WorldInverse;
-// The color of the object
+// The diffuse color of the object
 float4 DiffuseColor;
 // A source of light
 float3 PointLight;
@@ -11,13 +13,16 @@ float3 PointLight;
 // TODO: Apply the rotationAndScale to the normals
 // TODO: Normalize them to remove any scaling
 
+//---------------------------------- Input / Output structures ----------------------------------
+
+// The input of the vertex shader
 struct VertexShaderInput
 {
 	float4 Position3D : POSITION0;
 	float3 Normal : NORMAL;
 };
 
-// What should come out of the vertex shader?
+// The output of the vertex shader
 struct VertexShaderOutput
 {
 	float4 Position2D : POSITION0;
@@ -45,10 +50,10 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput input)
 	vector lightDirection = normalize(objectLight - input.Position3D);
 
 	// Diffuse using Lambert
-	float Diffuse = max(0, dot(input.Normal, lightDirection));
+	float diffuse = max(0, dot(input.Normal, lightDirection));
 
 	// Compute the final lighting
-	output.Color = DiffuseColor * Diffuse;
+	output.Color = DiffuseColor * diffuse;
 
 	return output;
 }
