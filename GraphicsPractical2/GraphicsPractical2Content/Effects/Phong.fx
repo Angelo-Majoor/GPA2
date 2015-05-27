@@ -6,8 +6,20 @@ float4x4 View, Projection, World;
 float4x4 WorldInverse;
 // The diffuse color for the object
 float4 DiffuseColor;
+// The ambient color for the object
+float4 AmbientColor;
+// The ambient intensity for the object
+float AmbientIntensity;
 // A source of light
 float3 PointLight;
+// The cameras eye position
+float3 CameraPosition;
+// The specular color of the Blinn Phong shading
+float4 SpecularColor;
+// The specular intensity of the blinn phong shading
+float SpecularIntensity;
+// The specular power of the blinn phong shading
+float SpecularPower;
 
 //---------------------------------- Input / Output structures ----------------------------------
 
@@ -25,7 +37,7 @@ struct VertexShaderOutput
 	float4 Color : COLOR0;
 };
 
-//-------------------------------- Technique: Lambertian ---------------------------------------
+//-------------------------------- Technique: Phong ---------------------------------------
 
 VertexShaderOutput SimpleVertexShader(VertexShaderInput input)
 {
@@ -55,11 +67,22 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput input)
 	vector objectLight = mul(PointLight, WorldInverse);
 	vector lightDirection = normalize(objectLight - input.Position3D);
 
+	// Determine the eye vector
+	// First get the eye vector in object space
+	vector objectEye = mul(CameraPosition, WorldInverse);
+	vector eyeDirection = normalize(objectEye - input.Position3D);
+
+	// Compute the half vector
+	vector halfVector = normalize((lightDirection + eyeDirection) / 2);
+
+	// Specular using Blinn Phong
+	float specular = max(0, pow(dot(input.Normal, halfVector), SpecularPower));
+
 	// Diffuse using Lambert
 	float diffuse = max(0, dot(input.Normal, lightDirection));
 
 	// Compute the final lighting
-	output.Color = DiffuseColor * diffuse;
+	output.Color = (DiffuseColor * diffuse) + (AmbientColor * AmbientIntensity) + (SpecularColor * SpecularIntensity * specular);
 
 	return output;
 }
@@ -69,7 +92,7 @@ float4 SimplePixelShader(VertexShaderOutput input) : COLOR0
 	return input.Color;
 }
 
-technique Lambertian
+technique Phong
 {
 	pass Pass0
 	{

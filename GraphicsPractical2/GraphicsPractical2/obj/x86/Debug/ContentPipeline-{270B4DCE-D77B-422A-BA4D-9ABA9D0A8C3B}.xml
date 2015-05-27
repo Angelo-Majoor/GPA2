@@ -17,7 +17,7 @@
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Lambertian.xnb</Output>
-      <Time>2015-05-25T21:15:16.3601397+02:00</Time>
+      <Time>2015-05-27T09:48:19.9421963+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Teapot.fbx</Source>
@@ -56,6 +56,24 @@
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\obj\x86\Debug\Models\Teapot_0.xml</Output>
       <Time>2015-05-12T09:14:44.2454467+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Effects\Phong.fx</Source>
+      <Name>Effects\Phong</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Phong.xnb</Output>
+      <Time>2015-05-27T10:18:39.3272592+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Effects\Ambient.fx</Source>
+      <Name>Effects\Ambient</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Ambient.xnb</Output>
+      <Time>2015-05-27T09:51:48.9781525+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

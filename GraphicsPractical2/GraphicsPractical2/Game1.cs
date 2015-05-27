@@ -64,8 +64,11 @@ namespace GraphicsPractical2
         {
             // Create a SpriteBatch object
             this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
-            // Load the 'Lambertian' effect
-            Effect effect = this.Content.Load<Effect>("Effects/Lambertian");
+
+            // Load the effect
+            //Effect effect = this.Content.Load<Effect>("Effects/Lambertian");
+            //Effect effect = this.Content.Load<Effect>("Effects/Ambient");
+            Effect effect = this.Content.Load<Effect>("Effects/Phong");
             // Load the teapot model
             this.model = this.Content.Load<Model>("Models/Teapot");
             // Let the model use the 'Lambertian' effect
@@ -104,7 +107,25 @@ namespace GraphicsPractical2
 
         protected override void Update(GameTime gameTime)
         {
-            float timeStep = (float)gameTime.ElapsedGameTime.TotalSeconds * 60.0f;
+            //float timeStep = (float)gameTime.ElapsedGameTime.TotalSeconds * 60.0f;
+            float timeStep = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            // Rotate the camera around the object using the left and right buttons
+            float deltaAngle = 0;
+            KeyboardState kbState = Keyboard.GetState();
+
+            if (kbState.IsKeyDown(Keys.Left))
+            {
+                deltaAngle += -3 * timeStep;
+            }
+            if (kbState.IsKeyDown(Keys.Right))
+            {
+                deltaAngle += 3 * timeStep;
+            }
+            if (deltaAngle != 0)
+            {
+                this.camera.Eye = Vector3.Transform(this.camera.Eye, Matrix.CreateRotationY(deltaAngle));
+            }
 
             // Update the window title
             this.Window.Title = "XNA Renderer | FPS: " + this.frameRateCounter.FrameRate;
@@ -122,7 +143,9 @@ namespace GraphicsPractical2
             Effect effect = mesh.Effects[0];
 
             // Set the effect parameters
-            effect.CurrentTechnique = effect.Techniques["Lambertian"];
+            //effect.CurrentTechnique = effect.Techniques["Lambertian"];
+            //effect.CurrentTechnique = effect.Techniques["Ambient"];
+            effect.CurrentTechnique = effect.Techniques["Phong"];
 
             // Matrices for 3D perspective projection
             this.camera.SetEffectParameters(effect);
@@ -133,6 +156,12 @@ namespace GraphicsPractical2
             this.modelMaterial.AmbientColor = Color.Red;
             // Set the ambient intensity
             this.modelMaterial.AmbientIntensity = 0.2f;
+            // Set the specular color
+            this.modelMaterial.SpecularColor = Color.White;
+            // Set the specular intensity
+            this.modelMaterial.SpecularIntensity = 2.0f;
+            // Set the specular power
+            this.modelMaterial.SpecularPower = 25.0f;
             // Apply the elements of the SetEffectParameters method that are being used
             this.modelMaterial.SetEffectParameters(effect);
 

@@ -47,9 +47,9 @@ namespace GraphicsPractical2
             //effect.Parameters["DiffuseTexture"].SetValue(this.DiffuseTexture);
             //effect.Parameters["NormalMap"].SetValue(this.NormalMap);
             //effect.Parameters["DisplacementFactor"].SetValue(this.DisplacementFactor);
-            //effect.Parameters["SpecularColor"].SetValue(this.SpecularColor.ToVector4());
-            //effect.Parameters["SpecularIntensity"].SetValue(this.SpecularIntensity);
-            //effect.Parameters["SpecularPower"].SetValue(this.SpecularPower);
+            effect.Parameters["SpecularColor"].SetValue(this.SpecularColor.ToVector4());
+            effect.Parameters["SpecularIntensity"].SetValue(this.SpecularIntensity);
+            effect.Parameters["SpecularPower"].SetValue(this.SpecularPower);
             //effect.Parameters["NormalColoring"].SetValue(this.NormalColoring);
             //effect.Parameters["ProceduralColoring"].SetValue(this.ProceduralColoring);
 
