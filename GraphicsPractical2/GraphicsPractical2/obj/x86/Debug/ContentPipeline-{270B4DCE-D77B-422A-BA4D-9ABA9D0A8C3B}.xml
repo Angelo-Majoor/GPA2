@@ -75,6 +75,15 @@
       <Output>C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Ambient.xnb</Output>
       <Time>2015-05-27T09:51:48.9781525+02:00</Time>
     </Item>
+    <Item>
+      <Source>Effects\Scaling.fx</Source>
+      <Name>Effects\Scaling</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Scaling.xnb</Output>
+      <Time>2015-05-27T15:38:07.6003099+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{270B4DCE-D77B-422A-BA4D-9ABA9D0A8C3B}</ContentProjectGUID>

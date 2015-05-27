@@ -11,3 +11,4 @@ C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Prac
 C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\obj\x86\Debug\GraphicsPractical2.csprojResolveAssemblyReference.cache
 C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Phong.xnb
 C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Ambient.xnb
+C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Scaling.xnb

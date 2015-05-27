@@ -5,3 +5,4 @@ Content\Normal Maps\CobblestonesNormal.xnb
 Content\Textures\CobblestonesDiffuse.xnb
 Content\Effects\Phong.xnb
 Content\Effects\Ambient.xnb
+Content\Effects\Scaling.xnb

@@ -68,7 +68,8 @@ namespace GraphicsPractical2
             // Load the effect
             //Effect effect = this.Content.Load<Effect>("Effects/Lambertian");
             //Effect effect = this.Content.Load<Effect>("Effects/Ambient");
-            Effect effect = this.Content.Load<Effect>("Effects/Phong");
+            //Effect effect = this.Content.Load<Effect>("Effects/Phong");
+            Effect effect = this.Content.Load<Effect>("Effects/Scaling");
             // Load the teapot model
             this.model = this.Content.Load<Model>("Models/Teapot");
             // Let the model use the 'Lambertian' effect
@@ -145,7 +146,8 @@ namespace GraphicsPractical2
             // Set the effect parameters
             //effect.CurrentTechnique = effect.Techniques["Lambertian"];
             //effect.CurrentTechnique = effect.Techniques["Ambient"];
-            effect.CurrentTechnique = effect.Techniques["Phong"];
+            //effect.CurrentTechnique = effect.Techniques["Phong"];
+            effect.CurrentTechnique = effect.Techniques["Scaling"];
 
             // Matrices for 3D perspective projection
             this.camera.SetEffectParameters(effect);
@@ -165,12 +167,14 @@ namespace GraphicsPractical2
             // Apply the elements of the SetEffectParameters method that are being used
             this.modelMaterial.SetEffectParameters(effect);
 
-            // Set the value of the World matrix to use in the Lambertian effect file
-            effect.Parameters["World"].SetValue(Matrix.CreateScale(10.0f));
-            // Calculate the inverse of the World matrix to use in the Lambertian effect file
-            effect.Parameters["WorldInverse"].SetValue(Matrix.Invert(Matrix.CreateScale(10.0f)));
-            // Set the value of the point light to use in the Lambertian effect file
+            // Set the value of the point light to use in the effect file
             effect.Parameters["PointLight"].SetValue(new Vector3(50, 50, 50));
+            // Set the value of the World matrix to use in the effect file
+            effect.Parameters["World"].SetValue(Matrix.CreateScale(10.0f));
+            // Calculate the inverse of the World matrix to use in the effect file
+            effect.Parameters["WorldInverse"].SetValue(Matrix.Invert(Matrix.CreateScale(10.0f)));
+            // Calculate the inverse transposed of the World matrix to use in the effect file
+            effect.Parameters["WorldInverseTransposed"].SetValue(Matrix.Transpose(Matrix.Invert(Matrix.CreateScale(10.0f, 6.5f, 2.5f))));
 
             // Draw the model
             mesh.Draw();
