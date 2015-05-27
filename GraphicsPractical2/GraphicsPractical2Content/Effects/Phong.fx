@@ -6,14 +6,18 @@ float4x4 View, Projection, World;
 float4x4 WorldInverse;
 // The diffuse color for the object
 float4 DiffuseColor;
+
 // The ambient color for the object
 float4 AmbientColor;
 // The ambient intensity for the object
 float AmbientIntensity;
+
 // A source of light
 float3 PointLight;
+
 // The cameras eye position
 float3 CameraPosition;
+
 // The specular color of the Blinn Phong shading
 float4 SpecularColor;
 // The specular intensity of the blinn phong shading
