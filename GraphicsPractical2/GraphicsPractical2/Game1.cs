@@ -72,7 +72,7 @@ namespace GraphicsPractical2
             Effect effect = this.Content.Load<Effect>("Effects/Scaling");
             // Load the teapot model
             this.model = this.Content.Load<Model>("Models/Teapot");
-            // Let the model use the 'Lambertian' effect
+            // Let the model use the effect
             this.model.Meshes[0].MeshParts[0].Effect = effect;
             // Setup the quad
             this.setupQuad();
