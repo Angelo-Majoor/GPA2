@@ -17,7 +17,7 @@
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Lambertian.xnb</Output>
-      <Time>2015-05-27T20:26:42.3834224+02:00</Time>
+      <Time>2015-06-01T20:44:03.5003999+02:00</Time>
     </Item>
     <Item>
       <Source>Models\Teapot.fbx</Source>
@@ -64,7 +64,7 @@
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Phong.xnb</Output>
-      <Time>2015-05-27T20:26:42.3854225+02:00</Time>
+      <Time>2015-06-01T20:33:57.8797603+02:00</Time>
     </Item>
     <Item>
       <Source>Effects\Ambient.fx</Source>
@@ -73,7 +73,7 @@
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Angelo 2\Documents\Gametechnologie\Graphics\Jaargang 2014\Practica\Practicum 2\GraphicsPractical2\GraphicsPractical2\bin\x86\Debug\Content\Effects\Ambient.xnb</Output>
-      <Time>2015-05-27T20:26:42.3804222+02:00</Time>
+      <Time>2015-06-01T20:41:24.3792987+02:00</Time>
     </Item>
     <Item>
       <Source>Effects\Scaling.fx</Source>

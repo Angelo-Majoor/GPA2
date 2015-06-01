@@ -38,7 +38,8 @@ struct VertexShaderInput
 struct VertexShaderOutput
 {
 	float4 Position2D : POSITION0;
-	float4 Color : COLOR0;
+	float4 Specular : TEXCOORD1;
+	float4 Diffuse : TEXCOORD2;
 };
 
 //-------------------------------- Technique: Phong ---------------------------------------
@@ -80,20 +81,18 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput input)
 	vector halfVector = normalize((lightDirection + eyeDirection) / 2);
 
 	// Specular using Blinn Phong
-	float specular = max(0, pow(dot(input.Normal, halfVector), SpecularPower));
+	output.Specular = max(0, pow(dot(input.Normal, halfVector), SpecularPower));
 
 	// Diffuse using Lambert
-	float diffuse = max(0, dot(input.Normal, lightDirection));
-
-	// Compute the final lighting
-	output.Color = (DiffuseColor * diffuse) + (AmbientColor * AmbientIntensity) + (SpecularColor * SpecularIntensity * specular);
+	output.Diffuse = max(0, dot(input.Normal, lightDirection));
 
 	return output;
 }
 
 float4 SimplePixelShader(VertexShaderOutput input) : COLOR0
 {
-	return input.Color;
+	// Compute the final lighting
+	return ((DiffuseColor * input.Diffuse) + (AmbientColor * AmbientIntensity) + (SpecularColor * SpecularIntensity * input.Specular));
 }
 
 technique Phong

@@ -29,7 +29,7 @@ struct VertexShaderInput
 struct VertexShaderOutput
 {
 	float4 Position2D : POSITION0;
-	float4 Color : COLOR0;
+	float4 Diffuse : TEXCOORD1;
 };
 
 //-------------------------------- Technique: Ambient ---------------------------------------
@@ -57,26 +57,21 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput input)
 	// Normalize the normals
 	input.Normal = normalize(intermediateNormal);
 
-	// The color to start with: ambient
-	float4 color = AmbientColor;
-
 	// Determine the light vector
 	// First get the light vector in object space
 	vector objectLight = mul(PointLight, WorldInverse);
 	vector lightDirection = normalize(objectLight - input.Position3D);
 
 	// Diffuse using Lambert
-	float diffuse = max(0, dot(input.Normal, lightDirection));
-
-	// Compute the final lighting
-	output.Color = (DiffuseColor * diffuse) + (AmbientColor * AmbientIntensity);
+	output.Diffuse = max(0, dot(input.Normal, lightDirection));
 
 	return output;
 }
 
 float4 SimplePixelShader(VertexShaderOutput input) : COLOR0
 {
-	return input.Color;
+	// Compute the final lighting
+	return ((DiffuseColor * input.Diffuse) + (AmbientColor * AmbientIntensity));
 }
 
 technique Ambient

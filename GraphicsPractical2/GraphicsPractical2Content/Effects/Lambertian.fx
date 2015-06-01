@@ -24,7 +24,7 @@ struct VertexShaderInput
 struct VertexShaderOutput
 {
 	float4 Position2D : POSITION0;
-	float4 Color : COLOR0;
+	float4 Diffuse : TEXCOORD1;
 };
 
 //-------------------------------- Technique: Lambertian ---------------------------------------
@@ -58,17 +58,15 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput input)
 	vector lightDirection = normalize(objectLight - input.Position3D);
 
 	// Diffuse using Lambert
-	float diffuse = max(0, dot(input.Normal, lightDirection));
-
-	// Compute the final lighting
-	output.Color = DiffuseColor * diffuse;
+	output.Diffuse = max(0, dot(input.Normal, lightDirection));
 
 	return output;
 }
 
 float4 SimplePixelShader(VertexShaderOutput input) : COLOR0
 {
-	return input.Color;
+	// Compute the final lighting
+	return (DiffuseColor * input.Diffuse);
 }
 
 technique Lambertian
